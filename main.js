@@ -4,6 +4,7 @@ import { GLTFLoader } from "./GLTFLoader_1.js";
 import { OrbitControls } from "./OrbitControls_1.js"
 
 import * as THREE from "https://unpkg.com/three@0.139.2/build/three.module.js";
+//import * as THREE from "three";
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x575757);
