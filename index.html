@@ -10,8 +10,7 @@
     <canvas id="bg"></canvas>
 
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-    <script src="./GLTFLoader_1.js"></script>
-    <script src="./OrbitControls_1.js"></script>
+    
 
     <script type="importmap">
       {
@@ -21,11 +20,15 @@
       }
     </script>
 
+    <!-- <script type = "module" src="./GLTFLoader_1.js"></script>
+    <script type = "module" src="./OrbitControls_1.js"></script> -->
+
     <script type="module">
       //import "./style.css"
 
       //import * as THREE from "https://unpkg.com/three@0.139.2/build/three.module.js";
       import * as THREE from "three";
+      import {GLTFLoader} from "./GLTFLoader_1.js"
 
       const scene = new THREE.Scene();
       scene.background = new THREE.Color(0x575757);
@@ -50,22 +53,24 @@
       scene.add(hlight);
 
 
-      const loader = new GLTFLoader();
-      loader.load("old_car_new.glb", function(gltf){
-        //car = gltf.scene.children[0];
-        //car.scale.set(0.5, 0.5, 0.5);
-        scene.add(gltf.scene)
-      });
+      //const loader = new GLTFLoader();
+      // loader.load("old_car_new.glb", function(gltf){
+      //   car = gltf.scene.children[0];
+      //   car.scale.set(0.5, 0.5, 0.5);
+      //   scene.add(gltf.scene)
+      // });
 
-      const controls = new OrbitControls(camera, renderer.domElement);
-      //const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-      //const material = new THREE.MeshBasicMaterial( {color: 0xfc0a0a} );
-      //const mesh = new THREE.Mesh(geometry, material);
-      //scene.add(mesh);
+      //const controls = new OrbitControls(camera, renderer.domElement);
+
+
+      const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+      const material = new THREE.MeshBasicMaterial( {color: 0xfc0a0a} );
+      const mesh = new THREE.Mesh(geometry, material);
+      scene.add(mesh);
 
       function animate() {
         requestAnimationFrame(animate);
-        controls.update()
+        //controls.update()
         renderer.render(scene, camera);
       }
 
